@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+			integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+			integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="style.css" />
+		<script src="script.js" type="text/javascript"></script>
+		<title>Weather App</title>
+	</head>
+
+	<body>
+		<div id="all-content">
+			<div class="container position-relative">
+				<div id="heading">
+					<h1 class="heading py-5 text-center">Check The Weather</h1>
+				</div>
+				<div id="weather-content" class="mx-auto">
+					<h2 id="city" class="text-center pt-2">Grad</h2>
+					<div class="row input-group mt-4 align-content-center">
+						<div class="form-outline col-sm-9 ml-5 p-0">
+							<input
+								type="search"
+								id="search-bar"
+								class="form-control shadow-none"
+								placeholder="Search City.."
+							/>
+						</div>
+						<button id="btn-search" class="col-sm-2">
+							<i class="fas fa-search"></i>
+						</button>
+					</div>
+
+					<div class="row d-flex flex-col">
+						<div id="temperature" class="col-md-5 ml-5 mt-3 p-3">
+							<div class="temp my-1"></div>
+							<div class="temp-max my-1"></div>
+							<div class="temp-min my-1"></div>
+							<div class="feels-like my-1"></div>
+						</div>
+
+						<div
+							id="sun"
+							class="col-md-5 text-center d-flex flex-column align-content-center mt-3 flex-column-reverse"
+						>
+							<img src="" alt="" class="icon" />
+							<div
+								class="main description col-md-3 align-self-center font-weight-bold"
+							></div>
+						</div>
+					</div>
+
+					<div class="d-flex flex-column ml-5 mt-4">
+						<div class="humidity"></div>
+						<div class="wind"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script
+		src="http://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+		integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+		crossorigin="anonymous"
+	></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+		integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+		crossorigin="anonymous"
+	></script>
+
+	<script>
+		// Get the current year for the copyright
+		$('#year').text(new Date().getFullYear());
+	</script>
+</html>
