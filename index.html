@@ -25,12 +25,14 @@
 		<div id="all-content">
 			<div class="container position-relative">
 				<div id="heading">
-					<h1 class="heading py-5 text-center">Check The Weather</h1>
+					<h1 class="heading py-5 text-center my-4">Check The Weather</h1>
 				</div>
-				<div id="weather-content" class="mx-auto">
+				<div id="weather-content" class="mx-auto mt-4">
 					<h2 id="city" class="text-center pt-2">Grad</h2>
-					<div class="row input-group mt-4 align-content-center">
-						<div class="form-outline col-sm-9 ml-5 p-0">
+					<div
+						class="row input-group mt-4 align-content-center justify-content-center"
+					>
+						<div class="form-outline col-sm-10 ps-5 pe-0 mx-auto">
 							<input
 								type="search"
 								id="search-bar"
@@ -38,13 +40,15 @@
 								placeholder="Search City.."
 							/>
 						</div>
-						<button id="btn-search" class="col-sm-2">
+						<button id="btn-search" class="col-sm-2 my-2 my-sm-0 mx-auto">
 							<i class="fas fa-search"></i>
 						</button>
 					</div>
 
-					<div class="row d-flex flex-col">
-						<div id="temperature" class="col-md-5 ml-5 mt-3 p-3">
+					<div
+						class="row d-flex flex-sm-row flex-column justify-content-between align-content-center m-4"
+					>
+						<div id="temperature" class="col-md-5 mt-3 p-3 hidden">
 							<div class="temp my-1"></div>
 							<div class="temp-max my-1"></div>
 							<div class="temp-min my-1"></div>
@@ -53,12 +57,12 @@
 
 						<div
 							id="sun"
-							class="col-md-5 text-center d-flex flex-column align-content-center mt-3 flex-column-reverse"
+							class="col-md-5 text-center d-flex flex-column align-items-center mt-3 flex-column-reverse hidden"
 						>
-							<img src="" alt="" class="icon" />
-							<div
-								class="main description col-md-3 align-self-center font-weight-bold"
-							></div>
+							<img src="" alt="" class="icon mx-auto" />
+							<p
+								class="main description align-self-center font-weight-bold text-center mt-2"
+							></p>
 						</div>
 					</div>
 

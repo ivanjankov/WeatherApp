@@ -9,7 +9,7 @@ body {
 h1 {
 	font-size: 50px;
 	font-weight: 700 !important;
-	font-style: italic;
+	/* font-style: italic; */
 }
 h2 {
 	font-size: 2.2rem !important;
@@ -33,12 +33,12 @@ h2:after {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	height: 100vh;
+	min-height: 100vh;
 }
 
 #weather-content {
 	position: relative;
-	width: 80%;
+	width: min(80%, 800px);
 	padding: 40px;
 	min-height: 400px;
 	background-color: rgba(223, 223, 223, 0.2);
@@ -79,7 +79,7 @@ input[type='search']:focus {
 
 #btn-search {
 	position: relative;
-	margin-left: 10px;
+	max-width: 90px;
 	border: 1px solid #95afc0;
 	color: #5f5f5f;
 	background-color: #c7ecee;
@@ -97,16 +97,22 @@ input[type='search']:focus {
 	height: 100%;
 	background-color: rgba(255, 255, 255, 0.5);
 	transform: skew(45deg);
-	transform: translateX(155px);
+	transform: translateX(205px);
 }
 #btn-search:hover::before {
 	transform: skewX(45deg) translateX(-155px);
 	transition: 1s ease;
 }
 
+.hidden {
+	display: none !important;
+}
+
 #temperature {
-	/* background: url('https://images.unsplash.com/photo-1601134467661-3d775b999c8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80')
-		no-repeat fixed center/cover; */
+	background: url('https://images.unsplash.com/photo-1601134467661-3d775b999c8b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1075&q=80')
+			no-repeat fixed center/cover,
+		linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2));
+	background-blend-mode: overlay;
 	color: #fff;
 	font-size: 1.2rem;
 	border-radius: 7px;
@@ -117,7 +123,6 @@ input[type='search']:focus {
 	background-color: rgba(223, 223, 223, 0.2);
 	border-radius: 10px;
 	overflow: hidden;
-	width: 50%;
 }
 #sun:before {
 	position: absolute;
@@ -132,19 +137,18 @@ input[type='search']:focus {
 }
 
 .description {
-	/* position: absolute; */
-	/* top: 30px; */
-	/* left: 50%; */
 	font-size: 1.2rem;
 	text-transform: capitalize;
-
-	/* transform: translateX(-50%); */
+	word-break: keep-all !important;
 }
 
 .icon {
-	/* background-color: rgb(255, 255, 255, 0.5); */
-	/* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
-	/* border-radius: 7px; */
 	margin-top: 20px;
 	margin: 20px auto 0;
 }
+
+@media only screen and (max-width: 768px) {
+	.input-group {
+		width: auto !important;
+	}
+} ;

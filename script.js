@@ -13,48 +13,54 @@ document.addEventListener('DOMContentLoaded', () => {
 					this.api
 			);
 			const data = await response.json();
-			console.log(data);
 			return data;
 		},
 	};
 
 	function searchButtonFunctionality() {
-		let temp, tempMax, tempMin, feelsLike, humidity, description, wind;
+		searchBtn.addEventListener('click', getWeatherData);
+		addEventListener('keypress', (e) => {
+			if (e.charCode == 13) {
+				getWeatherData();
+			}
+		});
+	}
+
+	function getWeatherData() {
+		let temp, tempMax, tempMin, feelsLike, description, wind;
 		temp = document.querySelector('.temp');
 		tempMax = document.querySelector('.temp-max');
 		tempMin = document.querySelector('.temp-min');
-		console.log(tempMin);
+
 		feelsLike = document.querySelector('.feels-like');
-		humidity = document.querySelector('.humidity');
+
 		wind = document.querySelector('.wind');
 		description = document.querySelector('.description');
 		icon = document.querySelector('.icon');
+		weatherIconContainer = document.getElementById('sun');
+		temperatureWrapper = document.getElementById('temperature');
 
-		searchBtn.addEventListener('click', () => {
-			let weatherData = weather
-				.fetchWeatherData(searchField.value)
-				.then((data) => {
-					wind = data.wind.speed;
+		let weatherData = weather
+			.fetchWeatherData(searchField.value)
+			.then((data) => {
+				wind = data.wind.speed;
+				weatherIconContainer.classList.remove('hidden');
+				temperatureWrapper.classList.remove('hidden');
 
-					// INNER TEXT OF THE ELEMENTS
-					cityHeading.innerText = data.name;
-					temp.innerText = `Current temperature is: ${Math.round(
-						data.main.temp
-					)} °C`;
-					tempMax.innerText = `Max. Temp: ${Math.round(
-						data.main.temp_max
-					)} °C `;
-					tempMin.innerText = `Min. Temp: ${Math.round(data.main.temp_min)} °C`;
-					feelsLike.innerText = `Feels like: ${Math.round(
-						data.main.feels_like
-					)} °C`;
-					humidity.innerText = `Humidity: ${Math.round(data.main.humidity)} %`;
-					description.innerText = data.weather[0].description;
-					wind.innerText = `Wind speed: ${data.win} km/h`;
-					icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-					console.log(icon);
-				});
-		});
+				// INNER TEXT OF THE ELEMENTS
+				cityHeading.innerText = data.name;
+				temp.innerText = `Current temperature is: ${Math.round(
+					data.main.temp
+				)} °C`;
+				tempMax.innerText = `Max. Temp: ${Math.round(data.main.temp_max)} °C `;
+				tempMin.innerText = `Min. Temp: ${Math.round(data.main.temp_min)} °C`;
+				feelsLike.innerText = `Feels like: ${Math.round(
+					data.main.feels_like
+				)} °C`;
+				description.innerText = data.weather[0].description;
+				wind.innerText = `Wind speed: ${data.win} km/h`;
+				icon.src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+			});
 	}
 
 	searchButtonFunctionality();
